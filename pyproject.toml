@@ -1,0 +1,45 @@
+[project]
+name = "multiagent-research-analyst"
+version = "0.1.0"
+description = "Autonomous multi-agent research system (LangGraph + FastAPI)"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Sumeet Kumar Yadav" }]
+license = { text = "MIT" }
+
+# Runtime deps phase-wise add honge (FastAPI Day 2, LiteLLM Day 3, LangGraph P1...).
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+# --- Linter (ruff) ---
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+# E/F = pyflakes+pycodestyle, I = import-sort, UP = pyupgrade, B = bugbear
+select = ["E", "F", "I", "UP", "B"]
+
+# --- Type checker (mypy) ---
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+# --- Tests (pytest) ---
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
