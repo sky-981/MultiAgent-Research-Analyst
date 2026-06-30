@@ -18,7 +18,7 @@ dist/
 .env.*
 !.env.example
 
-# Planning docs — LOCAL ONLY (strategy/personal, not for public repo)
+# Planning docs 
 docs/
 
 # IDE / editor
